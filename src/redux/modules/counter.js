@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-// import { counterState } from '../states/counterState';
+import counterState from '../states/counterState';
 
 // Create action types
 // these are just constants the must be in all caps and if the action type is
@@ -26,4 +26,4 @@ export const actions = {
 export default handleActions({
   [INCREMENT]: (state, { payload }) => state + payload,
   [DECREMENT]: (state, { payload }) => state - payload
-}, 1);
+}, counterState.counter);
