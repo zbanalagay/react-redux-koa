@@ -7,6 +7,7 @@ const ROOT_PATH = path.resolve(__dirname);
 module.exports = {
   devtool: 'source-map',
   entry: [
+    'webpack-hot-middleware/client',
     path.resolve(ROOT_PATH, 'src/main.js')
   ],
   module: {
@@ -43,9 +44,11 @@ module.exports = {
     progress: true
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Listlogs'
+      title: 'Modanterist'
     })
   ]
 };

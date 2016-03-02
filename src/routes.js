@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 
-import CounterView from './views/components/counterView';
-import HelloRoutes from './views/components/HelloRoutes';
-import CoreLayout from './views/layouts/coreLayout';
+import CounterView from './containers/Counter/counterView';
+import HelloRoutes from './containers/Hello/HelloRoutes';
+import CoreLayout from './layouts/coreLayout';
 
 export default (
   <Route path="/" component= { CoreLayout } >
