@@ -24,7 +24,7 @@ const webpackConfiguration = {
     extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: path.resolve(ROOT_PATH, 'app/dist'),
+    path: path.resolve(ROOT_PATH, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
