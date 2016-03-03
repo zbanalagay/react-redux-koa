@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js",
-    "postinstall": "webpack"
+    "clean": "rm -rf app",
+    "deploy": "NODE_ENV='production' && weback"
   },
   "repository": {
     "type": "git",
