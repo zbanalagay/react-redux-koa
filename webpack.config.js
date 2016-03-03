@@ -4,29 +4,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 
-module.exports = {
+const webpackConfiguration = {
   devtool: 'source-map',
   entry: [
-    'webpack-hot-middleware/client',
     path.resolve(ROOT_PATH, 'src/main.js')
   ],
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
-        include: path.resolve(ROOT_PATH, 'src')
-      }
-    ],
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loaders: ['babel']
     },
-    {
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass']
-    }],
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      }],
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -36,19 +28,36 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: path.resolve(ROOT_PATH, 'app/dist'),
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    progress: true
-  },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       title: 'Modanterist'
     })
   ]
 };
+
+if (process.env.NODE_ENV === 'development') {
+  webpackConfiguration.module.preLoaders = [
+    {
+      test: /\.jsx?$/,
+      loaders: ['eslint'],
+      include: path.resolve(ROOT_PATH, 'src')
+    }];
+  const webpackHMR = new webpack.HotModuleReplacementPlugin();
+  const webpackNoErrors = new webpack.NoErrorsPlugin();
+  webpackConfiguration.plugins.push(
+    webpackHMR,
+    webpackNoErrors
+    );
+  webpackConfiguration.entry.push('webpack-hot-middleware/client');
+}
+
+if (process.env.NODE_ENV === 'production') {
+  const webpackUgify = new webpack.optimize.UglifyJsPlugin({
+    noerr: true
+  });
+  webpackConfiguration.plugins.push(webpackUgify);
+}
+
+
+module.exports = webpackConfiguration;
