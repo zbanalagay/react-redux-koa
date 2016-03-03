@@ -1,4 +1,5 @@
-// This file shows examples for writing reducers and action creators using both the redux-actions library
+// This file shows examples for writing reducers and action creators
+// using both the redux- actions library
 // and just writing them out explicitly. The method using the redux-actions module is commented out.
 // comment in the following line if you want to use redux-actions
 // import { createAction, handleActions } from 'redux-actions';
