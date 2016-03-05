@@ -4,13 +4,13 @@ import React, { PropTypes } from 'react';
 function DisplayNumber({ numToDisplay }) {
   return (
     <div>
-      <h1>{ numToDisplay }</h1>
+      <h1>{ numToDisplay.get('counter') }</h1>
     </div>
   );
 }
 
 DisplayNumber.propTypes = {
-  numToDisplay: PropTypes.number
+  numToDisplay: PropTypes.object
 };
 
 export default DisplayNumber;
