@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 // this is a smart component. it contains a dumb component (DisplayNumber) to help display logic
 export class CounterView extends React.Component {
   static propTypes = {
-    counter: PropTypes.number.isRequired,
+    counter: PropTypes.object.isRequired,
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired
   };
