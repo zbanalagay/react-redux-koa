@@ -10,6 +10,11 @@ const webpackConfiguration = {
     path.resolve(ROOT_PATH, 'src/main.js')
   ],
   module: {
+    preLoaders: [{
+      test: /\.jsx?$/,
+      loaders: ['eslint'],
+      include: path.resolve(ROOT_PATH, 'src')
+    }],
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
@@ -44,19 +49,19 @@ if (process.env.NODE_ENV === 'development') {
       include: path.resolve(ROOT_PATH, 'src')
     }];
   const webpackHMR = new webpack.HotModuleReplacementPlugin();
-  const webpackNoErrors = new webpack.NoErrorsPlugin();
-  webpackConfiguration.plugins.push(
-    webpackHMR,
-    webpackNoErrors
-    );
+  webpackConfiguration.plugins.push(webpackHMR);
   webpackConfiguration.entry.push('webpack-hot-middleware/client');
 }
 
 if (process.env.NODE_ENV === 'production') {
-  const webpackUgify = new webpack.optimize.UglifyJsPlugin({
+  const webpackNoErrors = new webpack.NoErrorsPlugin();
+  const webpackUglify = new webpack.optimize.UglifyJsPlugin({
     noerr: true
   });
-  webpackConfiguration.plugins.push(webpackUgify);
+  webpackConfiguration.plugins.push(
+    webpackUglify,
+    webpackNoErrors
+    );
 }
 
 
