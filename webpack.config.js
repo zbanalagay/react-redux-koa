@@ -36,7 +36,7 @@ const webpackConfiguration = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Modanterist'
+      template: 'index.html'
     })
   ]
 };
