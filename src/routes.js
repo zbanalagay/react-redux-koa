@@ -3,7 +3,7 @@ import { Route, IndexRoute, Redirect } from 'react-router';
 
 import CounterView from './containers/Counter/counterView';
 import HelloRoutes from './containers/Hello/HelloRoutes';
-import CoreLayout from './layouts/coreLayout';
+import CoreLayout from './layouts/CoreLayout';
 
 export default (
   <Route path="/" component= { CoreLayout } >
