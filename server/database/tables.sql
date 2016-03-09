@@ -10,7 +10,8 @@ CREATE TABLE users(
 
 CREATE TABLE boards (
   board_id serial PRIMARY KEY,
-  description varchar(50)
+  description varchar(50),
+  user_id int REFERENCES users(user_id)
 );
 
 CREATE TABLE cards (
