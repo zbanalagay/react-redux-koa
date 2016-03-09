@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 // require the sass file corresponding to the component
-require('../stylesheets/components/displaynumber.scss');
+require('./displaynumber.scss');
 
 // This is a stateless function/component. it only takes in a prop and then displays it
 function DisplayNumber({ numToDisplay }) {
