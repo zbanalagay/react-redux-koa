@@ -41,7 +41,7 @@ module.exports = function (config) {
 
         // required for enzyme to work properly
         alias: {
-          'sinon': 'sinon/pkg/sinon'
+          sinon: 'sinon/pkg/sinon'
         }
       },
       module: {
@@ -81,8 +81,8 @@ module.exports = function (config) {
       },
       // required for enzyme to work properly
       externals: {
-        'jsdom': 'window',
-        'cheerio': 'window',
+        jsdom: 'window',
+        cheerio: 'window',
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': 'window'
       },
