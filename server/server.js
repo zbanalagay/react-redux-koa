@@ -22,3 +22,19 @@ app.use(serve(`${__dirname}/../dist`));
 
 app.listen(process.env.PORT);
 console.log('Koa is listening on port 3000');
+
+
+const pg = require('co-pg')(require('pg'));
+const co = require('co');
+
+co(function* () {
+  try {
+    const client = new pg.Client(process.env.DB);
+    yield client.connectPromise();
+    yield client.queryPromise('INSERT INTO users(username) values($1)', ['yusuf']);
+    client.end();
+  } catch (ex) {
+    console.log(ex.toString());
+  }
+});
+
