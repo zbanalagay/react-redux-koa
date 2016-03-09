@@ -1,12 +1,15 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const ROOT_PATH = path.resolve(__dirname);
 
 const webpackConfiguration = {
   devtool: 'source-map',
   entry: [
+    'bootstrap-loader',
+    'tether',
     path.resolve(ROOT_PATH, 'src/main.js')
   ],
   module: {
@@ -18,16 +21,33 @@ const webpackConfiguration = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loaders: ['babel']
+      loader: 'babel'
     },
       {
+        test: /\.css$/,
+        loaders: ['style', 'css', 'postcss']
+      },
+      {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        loaders: ['style', 'css', 'postcss', 'sass']
+      },
+      {
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url?limit=10000'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file'
+      },
+      { test: /bootstrap-sass\/assets\/javascripts\//,
+        loader: 'imports?jQuery=jquery'
       }],
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+  sassResources: './src/assets/App.scss',
+  postcss: [autoprefixer],
   output: {
     path: path.resolve(ROOT_PATH, 'dist'),
     publicPath: '/',
@@ -35,6 +55,9 @@ const webpackConfiguration = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.ProvidePlugin({
+      'window.Tether': 'tether'
+    }),
     new HtmlWebpackPlugin({
       template: 'index.html'
     })
@@ -61,7 +84,7 @@ if (process.env.NODE_ENV === 'production') {
   webpackConfiguration.plugins.push(
     webpackUglify,
     webpackNoErrors
-    );
+  );
 }
 
 
