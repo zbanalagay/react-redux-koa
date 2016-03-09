@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { actions as counterActions } from '../../redux/modules/counter';
-import DisplayNumber from '../../components/displayNumber';
+import DisplayNumber from '../../components/displayNumber/displayNumber';
 
 const mapStateToProps = (state) => ({
   counter: state.counter

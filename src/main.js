@@ -4,7 +4,7 @@ import App from './containers/App/App';
 // import { createHistory, useBasename } from 'history';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import routes from './routes';
+import routes from './routes/routes';
 import configureStore from './redux/configureStore';
 
 const store = configureStore(window.__INITIAL_STATE__);

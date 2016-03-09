@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');
 const ROOT_PATH = path.resolve(__dirname);
 
 const webpackConfiguration = {
-  devtool: 'source-map',
+  devtool: 'eval',
   entry: [
     'bootstrap-loader',
     'tether',
@@ -65,12 +65,6 @@ const webpackConfiguration = {
 };
 
 if (process.env.NODE_ENV === 'development') {
-  webpackConfiguration.module.preLoaders = [
-    {
-      test: /\.jsx?$/,
-      loaders: ['eslint'],
-      include: path.resolve(ROOT_PATH, 'src')
-    }];
   const webpackHMR = new webpack.HotModuleReplacementPlugin();
   webpackConfiguration.plugins.push(webpackHMR);
   webpackConfiguration.entry.push('webpack-hot-middleware/client');
