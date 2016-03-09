@@ -4,3 +4,6 @@ dist
 typings
 typings.json
 .vscode
+npm-debug-log
+log
+.babelrc
