@@ -18,5 +18,3 @@ describe('CounterView', () => {
     expect(output.props.children.length).toBe(4);
   });
 });
-
-
