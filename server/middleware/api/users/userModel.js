@@ -1,5 +1,4 @@
 const pg = require('co-pg')(require('pg'));
-const co = require('co');
 
 module.exports = (function () {
   function* addUser(userObj) {
@@ -10,21 +9,21 @@ module.exports = (function () {
         [userObj.username, userObj.password]);
       client.end();
     } catch (ex) {
-      console.log(ex.toString());
+      console.error(ex.toString());
     }
   }
 
-  function* getUser() {
+  function* getUser(username) {
     try {
       const client = new pg.Client(process.env.DB);
       yield client.connectPromise();
       const result = yield client.queryPromise(
         'SELECT username, password FROM users WHERE username = ($1)',
-        ['yusuf']);
+        [username]);
       client.end();
-      console.log(result);
+      return result.rows;
     } catch (ex) {
-      console.log(ex.toString());
+      console.error(ex.toString());
     }
   }
 

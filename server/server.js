@@ -22,7 +22,3 @@ app.use(serve(`${__dirname}/../dist`));
 
 app.listen(process.env.PORT);
 console.log('Koa is listening on port 3000');
-
-const l = require('./middleware/api/users/userModel');
-const co = require('co');
-co(l.getUser);
