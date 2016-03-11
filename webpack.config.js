@@ -72,11 +72,7 @@ if (process.env.NODE_ENV === 'development') {
 
 if (process.env.NODE_ENV === 'production') {
   const webpackNoErrors = new webpack.NoErrorsPlugin();
-  const webpackUglify = new webpack.optimize.UglifyJsPlugin({
-    noerr: true
-  });
   webpackConfiguration.plugins.push(
-    webpackUglify,
     webpackNoErrors
   );
 }

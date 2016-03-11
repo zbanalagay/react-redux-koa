@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App/App';
-// import { createHistory, useBasename } from 'history';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes/routes';
@@ -13,6 +12,5 @@ const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState: (state) => state.router
 });
 
-const app = document.createElement('div');
-document.body.appendChild(app);
+const app = document.getElementById('App');
 ReactDOM.render(<App store={store} history={history} routes={routes} />, app);

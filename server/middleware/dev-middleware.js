@@ -1,6 +1,6 @@
 const webpackDevMiddleware = function (webpackConfig, compiler) {
   return require('koa-webpack-dev-middleware')(compiler, {
-    quiet: true,
+    quiet: false,
     noInfo: true,
     stats: {
       colors: true,
@@ -23,5 +23,3 @@ const devMiddleware = {
 };
 
 module.exports = devMiddleware;
-
-
