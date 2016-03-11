@@ -11,24 +11,9 @@
   },
   "scripts": {
     "test": "cp .babelrc.test .babelrc && node_modules/.bin/karma start karma.config.js",
-    "old_test": "cp .babelrc.test .babelrc && mocha --require ignore-styles --compilers js:babel-register --recursive",
-    "start": "cp .babelrc.dev .babelrc && npm run clean && webpack && nodemon server/server.js",
+    "start": "cp .babelrc.dev .babelrc && npm run clean && webpack --progress && nodemon server/server.js",
     "clean": "rm -rf dist",
-    "deploy": "NODE_ENV=production && webpack"
-  },
-  "jest": {
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react",
-      "<rootDir>/node_modules/react-dom",
-      "<rootDir>/node_modules/react-addons-test-utils"
-    ],
-    "verbose": true,
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "deploy": "npm run clean && webpack --progress -p"
   },
   "repository": {
     "type": "git",

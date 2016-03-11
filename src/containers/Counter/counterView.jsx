@@ -16,15 +16,26 @@ export class CounterView extends React.Component {
     decrement: PropTypes.func.isRequired
   };
 
-  render() {
-    const handleIncrement = () => this.props.increment();
-    const handleDecrement = () => this.props.decrement();
+  constructor(props) {
+    super(props);
+    this.handleIncrement = this.handleIncrement.bind(this);
+    this.handleDecrement = this.handleDecrement.bind(this);
+  }
 
+  handleIncrement() {
+    this.props.increment();
+  }
+
+  handleDecrement() {
+    this.props.decrement();
+  }
+
+  render() {
     return (
       <div>
         <DisplayNumber numToDisplay={this.props.counter} />
-        <button onClick={handleIncrement}>increment</button>
-        <button onClick={handleDecrement}>decrement</button>
+        <button onClick={this.handleIncrement}>increment</button>
+        <button onClick={this.handleDecrement}>decrement</button>
         <Link to="/hello">Let's Do Some Routing!</Link>
       </div>
     );
