@@ -2,6 +2,7 @@ import counterState from '../states/counterState';
 
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
+export const ADD_ASYNC = 'ADD_ASYNC';
 
 export function increment(value = 1) {
   return { type: INCREMENT,
@@ -13,10 +14,16 @@ export function decrement(value = 1) {
            value };
 }
 
+export function addAsync() {
+  return (dispatch) => fetch('/users/asyncAdd')
+      .then((response) => response.text())
+      .then((asyncNum) => dispatch(increment(parseInt(asyncNum, 10))));
+}
 
 export const actions = {
   increment,
-  decrement
+  decrement,
+  addAsync
 };
 
 

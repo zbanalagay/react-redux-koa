@@ -1,5 +1,7 @@
 const userRoutes = require('koa-router')();
 
-userRoutes.get('/', function *() { });
+userRoutes.get('/asyncAdd', function* () {
+  this.response.body = 5;
+});
 
 module.exports = userRoutes;

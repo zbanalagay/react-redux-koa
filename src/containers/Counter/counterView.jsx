@@ -13,13 +13,15 @@ export class CounterView extends React.Component {
   static propTypes = {
     counter: PropTypes.object.isRequired,
     increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired
+    decrement: PropTypes.func.isRequired,
+    addAsync: PropTypes.func.isRequired,
   };
 
   constructor(props) {
     super(props);
     this.handleIncrement = this.handleIncrement.bind(this);
     this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleAddAsync = this.handleAddAsync.bind(this);
   }
 
   handleIncrement() {
@@ -30,12 +32,17 @@ export class CounterView extends React.Component {
     this.props.decrement();
   }
 
+  handleAddAsync() {
+    this.props.addAsync();
+  }
+
   render() {
     return (
       <div>
         <DisplayNumber numToDisplay={this.props.counter} />
         <button onClick={this.handleIncrement}>increment</button>
         <button onClick={this.handleDecrement}>decrement</button>
+        <button onClick={this.handleAddAsync}>Async Add</button>
         <Link to="/hello">Let's Do Some Routing!</Link>
       </div>
     );
