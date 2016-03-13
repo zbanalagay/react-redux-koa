@@ -15,4 +15,7 @@ following in the root of this project's directory.
 
 3. Browse to [http://localhost:3000/](http://localhost:3000/) to view the starter kit!
 
+4. If you would like to see Redux in action make sure you have the [redux devtools chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+extension installed and pull it up in the chrome devtools pane or right click on the page and pull it up in a separate window.
+
 This Boilerplate is a work in progress. I will be updating it whenever I learn something new and can apply it to this example app.
