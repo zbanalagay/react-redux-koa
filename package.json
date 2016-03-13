@@ -1,11 +1,8 @@
 {
-  "name": "mondanterist",
+  "name": "react-redux-koa",
   "version": "1.0.0",
-  "description": "a pinterest clone in react + redux",
+  "description": "a simple react+redux+koa boilerplate",
   "main": "server/server.js",
-  "directories": {
-    "test": "tests"
-  },
   "engines": {
     "node": "5.7.0"
   },
@@ -17,19 +14,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ModanBrothers/mondanterist.git"
+    "url": "git+https://github.com/ahmedmodan/react-redux-koa"
   },
   "keywords": [
     "react",
     "redux",
     "webpack"
   ],
-  "author": "ModanBrothers",
+  "author": "ahmedmodan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ModanBrothers/mondanterist/issues"
+    "url": "https://github.com/ahmedmodan/react-redux-koa/issues"
   },
-  "homepage": "https://github.com/ModanBrothers/mondanterist#readme",
+  "homepage": "https://github.com/ahmedmodan/react-redux-koa#readme",
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "babel-loader": "6.2.4",
