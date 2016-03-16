@@ -40,10 +40,10 @@ export class CounterView extends React.Component {
     return (
       <div>
         <DisplayNumber numToDisplay={this.props.counter} />
-        <button onClick={this.handleIncrement}>increment</button>
-        <button onClick={this.handleDecrement}>decrement</button>
-        <button onClick={this.handleAddAsync}>Async Add</button>
-        <Link to="/hello">Let's Do Some Routing!</Link>
+        <button className="btn btn-default" onClick={this.handleDecrement}>decrement</button>
+        <button className="btn btn-default" onClick={this.handleIncrement}>increment</button>
+        <button className="btn btn-default" onClick={this.handleAddAsync}>Async Add</button>
+        <Link to="/counter/hello">Let's Do Some Routing!</Link>
       </div>
     );
   }

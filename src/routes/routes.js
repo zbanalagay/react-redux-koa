@@ -1,14 +1,15 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 
-import CounterView from '../containers/Counter/counterView';
-import HelloRoutes from '../containers/Hello/HelloRoutes';
+import LandingView from './../containers/Landing/LandingView.jsx';
 import CoreLayout from '../layouts/CoreLayout';
+
+import counterRoutes from './counterRoutes.jsx';
 
 export default (
   <Route path="/" component= { CoreLayout } >
-    <IndexRoute component={ CounterView } />
-    <Route path="/hello" component={ HelloRoutes } />
+    <IndexRoute component={ LandingView } />
+    { counterRoutes }
     <Redirect from="*" to="/" />
 
   </Route>

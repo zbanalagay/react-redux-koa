@@ -1,6 +1,6 @@
 const router = require('koa-router')();
-const userRoutes = require('./users/userRoutes');
+const counterRoutes = require('./counter/counterRoutes');
 
-router.use('/users', userRoutes.routes());
+router.use('/counter', counterRoutes.routes());
 
 module.exports = router;

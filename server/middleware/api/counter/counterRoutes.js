@@ -1,6 +1,6 @@
 const userRoutes = require('koa-router')();
 
-userRoutes.get('/asyncAdd', function* () {
+userRoutes.get('/', function* () {
   this.response.body = 5;
 });
 

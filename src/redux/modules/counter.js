@@ -15,7 +15,7 @@ export function decrement(value = 1) {
 }
 
 export function addAsync() {
-  return (dispatch) => fetch('/users/asyncAdd')
+  return (dispatch) => fetch('/counter')
       .then((response) => response.text())
       .then((asyncNum) => dispatch(increment(parseInt(asyncNum, 10))));
 }
